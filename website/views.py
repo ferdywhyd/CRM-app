@@ -11,10 +11,10 @@ def home(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, "MANEH GEUS LOGIN")
+            messages.success(request, "Berhasil Login")
             return redirect('home')
         else:
-            messages.success(request, "ERRORR BOSSS")
+            messages.success(request, "Username dan Password Salah")
             return redirect('home')
     else:
         return render(request, "home.html", {})
@@ -40,3 +40,4 @@ def register_user(request):
     else:
         form = SignUpForm()
         return render(request, "register.html", {'form':form})
+    return render(request, "register.html", {'form':form})

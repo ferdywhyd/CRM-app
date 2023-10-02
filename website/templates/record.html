@@ -2,6 +2,25 @@
 
 {% block content %}
 
-<h1>customer_record</h1>
+<div class="card text-center">
+    <div class="card-header">
+        {{ customer_record.id }} 
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"> {{ customer_record.first_name }} {{ customer_record.last_name }} <br> {{ customer_record.city }} {{ customer_record.state }} {{ customer_record.zipcode }} </h5>
+      <p class="card-text">{{ customer_record.phone }} <br>
+        {{ customer_record.email }}</p>
+      <a href="#" class="btn btn-primary">Hubungi</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+    {{ customer_record.created_at }}
+    </div>
+  </div>
+  <br>
+  <div class="d-grid gap-2 col-6 mx-auto">
+  <a href="{% url 'update_record' customer_record.id %}" class="btn btn-success"> Update </a>
+  <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger"> Delete </a>
+  <a href="{% url 'home' %}" class="btn btn-secondary"> Back </a>
+    </div>
 
 {% endblock%}
